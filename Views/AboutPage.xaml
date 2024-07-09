@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:Notes.ViewModels"
+             x:Class="Notes.Views.AboutPage">
+    <ContentPage.BindingContext>
+        <viewModels:LCAboutViewModel />
+    </ContentPage.BindingContext>
+    <VerticalStackLayout Spacing="10" Margin="10">
+        <HorizontalStackLayout Spacing="10">
+            <Image x:Name="LCImage"
+                   Source="lenin_cando.png"
+                   SemanticProperties.Description="The dot net bot waving hello!"
+                   HeightRequest="64" />
+            <Label x:Name="LCTitleLabel"
+                   FontSize="22"
+                   FontAttributes="Bold"
+                   Text="{Binding Title}"
+                   VerticalOptions="End" />
+            <Label x:Name="LCVersionLabel"
+                   FontSize="22"
+                   Text="{Binding Version}"
+                   VerticalOptions="End" />
+        </HorizontalStackLayout>
+
+        <Label x:Name="LCMessageLabel"
+               Text="{Binding Message}" />
+        <Button x:Name="LCLearnMoreButton"
+                Text="LC Learn more..."
+                Command="{Binding ShowMoreInfoCommand}" />
+    </VerticalStackLayout>
+</ContentPage>
